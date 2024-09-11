@@ -33,7 +33,6 @@ public interface BlueprintsPersistence {
     public Blueprint getBlueprint(String author,String bprintname) throws BlueprintNotFoundException;
 
     /**
-     * Method that search blueprints by author
      *
      * @param author author´s name
      * @return ArrayList of BluePrints
