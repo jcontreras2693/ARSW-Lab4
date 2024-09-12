@@ -16,10 +16,14 @@ import edu.eci.arsw.blueprints.persistence.Filter;
 @Qualifier("RedundancyFilter")
 public class Redundancy implements Filter {
 
+    List<Point> original;
+    List<Point> duplicated;
+    List<Point> x;
+
     @Override
     public Blueprint filter(Blueprint blueprint) {
-        List<Point> original = blueprint.getPoints();
-        List<Point> duplicated = new ArrayList<>();
+        original = blueprint.getPoints();
+        duplicated = new ArrayList<>();
         for (int i = 0; i < original.size(); i++) {
             for (int j = i + 1; j < original.size(); j++) {
                 if (areEquals(original.get(i), original.get(j))) {
@@ -45,7 +49,7 @@ public class Redundancy implements Filter {
     }
 
     public List<Point> removeduplicated(List<Point> duplicatedPoints, List<Point> ptsAll) {
-        List<Point> x = new ArrayList<>(ptsAll);
+        x = new ArrayList<>(ptsAll);
         for (Point i: duplicatedPoints) {
             x.remove(i);
         }

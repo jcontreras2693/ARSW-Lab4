@@ -15,10 +15,13 @@ import org.springframework.stereotype.Service;
 @Qualifier("SubsamplingFilter")
 public class Subsampling implements Filter{
 
+    List<Point> original;
+    List<Point> newPoints;
+
     @Override
     public Blueprint filter(Blueprint blueprint) {
-        List<Point> original = blueprint.getPoints();
-        List<Point> newPoints = new ArrayList<>();
+        original = blueprint.getPoints();
+        newPoints = new ArrayList<>();
         for(int i = 0; i < original.size(); i += 2){
             newPoints.add(original.get(i));
         }
