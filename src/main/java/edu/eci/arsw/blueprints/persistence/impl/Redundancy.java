@@ -32,7 +32,7 @@ public class Redundancy implements Filter {
                 }
             }
         }
-        blueprint.setPoints(removeduplicated(duplicated, original));
+        blueprint.setPoints(removeDuplicated(duplicated, original));
         return blueprint;
     }
 
@@ -48,7 +48,7 @@ public class Redundancy implements Filter {
         return (p1.getX() == p2.getX() && p1.getY() == p2.getY());
     }
 
-    public List<Point> removeduplicated(List<Point> duplicatedPoints, List<Point> ptsAll) {
+    public List<Point> removeDuplicated(List<Point> duplicatedPoints, List<Point> ptsAll) {
         x = new ArrayList<>(ptsAll);
         for (Point i: duplicatedPoints) {
             x.remove(i);
