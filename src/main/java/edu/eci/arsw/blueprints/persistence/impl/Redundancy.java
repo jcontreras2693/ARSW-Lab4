@@ -19,16 +19,16 @@ public class Redundancy implements Filter {
     @Override
     public Blueprint filter(Blueprint blueprint) {
         List<Point> original = blueprint.getPoints();
-        List<Point> repeated = new ArrayList<>();
+        List<Point> duplicated = new ArrayList<>();
         for (int i = 0; i < original.size(); i++) {
             for (int j = i + 1; j < original.size(); j++) {
                 if (areEquals(original.get(i), original.get(j))) {
-                    repeated.add(original.get(i));
+                    duplicated.add(original.get(i));
                     break;
                 }
             }
         }
-        blueprint.setPoints(removeRepeated(repeated, original));
+        blueprint.setPoints(removeduplicated(duplicated, original));
         return blueprint;
     }
 
@@ -44,9 +44,9 @@ public class Redundancy implements Filter {
         return (p1.getX() == p2.getX() && p1.getY() == p2.getY());
     }
 
-    public List<Point> removeRepeated(List<Point> repeatedPoints, List<Point> ptsAll) {
+    public List<Point> removeduplicated(List<Point> duplicatedPoints, List<Point> ptsAll) {
         List<Point> x = new ArrayList<>(ptsAll);
-        for (Point i: repeatedPoints) {
+        for (Point i: duplicatedPoints) {
             x.remove(i);
         }
         return x;
