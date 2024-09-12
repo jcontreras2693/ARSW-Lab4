@@ -24,7 +24,7 @@ En este ejercicio se va a construír un modelo de clases para la capa lógica de
 	* Agregar la configuración de Spring.
 	* Configurar la aplicación -mediante anotaciones- para que el esquema de persistencia sea inyectado al momento de ser creado el bean 'BlueprintServices'.
 
-- Se agregan las dependencias de Spring.
+- Se agregan las dependencias de Spring desde el pom.
 
 ![](img/media/parte1.png)
 
@@ -40,7 +40,7 @@ En este ejercicio se va a construír un modelo de clases para la capa lógica de
 
 3. Haga un programa en el que cree (mediante Spring) una instancia de BlueprintServices, y rectifique la funcionalidad del mismo: registrar planos, consultar planos, registrar planos específicos, etc.
 
-- a
+- Con las dependencias que se agregaron en el punto 1 y creando una clase main se logra que el proyecto se pueda ejecutar usando Spring.
 
 ![](img/media/parte3.png)
 
