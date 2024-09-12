@@ -47,13 +47,13 @@ En este ejercicio se va a construír un modelo de clases para la capa lógica de
 4. Se quiere que las operaciones de consulta de planos realicen un proceso de filtrado, antes de retornar los planos consultados. Dichos filtros lo que buscan es reducir el tamaño de los planos, removiendo datos redundantes o simplemente submuestrando, antes de retornarlos. Ajuste la aplicación (agregando las abstracciones e implementaciones que considere) para que a la clase BlueprintServices se le inyecte uno de dos posibles 'filtros' (o eventuales futuros filtros). No se contempla el uso de más de uno a la vez:
 	* (A) Filtrado de redundancias: suprime del plano los puntos consecutivos que sean repetidos.
 
-      - a
+      - La clase Duplicate es la que se encargará de esto.
 
 	  ![](img/media/parte4_1.png)
 
     * (B) Filtrado de submuestreo: suprime 1 de cada 2 puntos del plano, de manera intercalada.
 
-      - a
+      - La clase Subsampling se encargará, tanto esta clase como la anterior implementan la interfaz Filter.
 
       ![](img/media/parte4_2.png)
 

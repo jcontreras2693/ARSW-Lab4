@@ -12,7 +12,7 @@ import java.util.Set;
 @Service
 public class FilterServices {
     @Autowired
-    @Qualifier("DuplicatedFilter")
+    @Qualifier("RedundancyFilter")
     Filter filter;
 
     public void applyFilter(Blueprint bp)   {

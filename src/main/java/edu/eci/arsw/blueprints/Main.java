@@ -29,8 +29,7 @@ public class Main implements CommandLineRunner{
     public void run(String ... args) throws BlueprintNotFoundException{
         ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         BlueprintsServices bs = appContext.getBean(BlueprintsServices.class);
-        Point[] points = new Point[] { new Point(0, 0), new Point(10, 10), new Point(20, 20), new Point(0, 20),
-                new Point(20, 0)};
+        Point[] points = new Point[] { new Point(0, 0), new Point(0, 0), new Point(10, 10), new Point(10, 10), new Point(20, 20), new Point(0, 20), new Point(20, 0), };
 
         Blueprint currentBlueprint = new Blueprint("Juan", "house1", points);
         bs.addNewBlueprint(currentBlueprint);

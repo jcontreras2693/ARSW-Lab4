@@ -16,15 +16,16 @@ import org.springframework.stereotype.Service;
 public class Subsampling implements Filter{
 
     @Override
-    public Blueprint applyFilter(Blueprint bp) {
-        List<Point> originalPoints = bp.getPoints();
-        List<Point> newPoints= new ArrayList<>();
-        for(int i = 0; i< originalPoints.size(); i+=2){
-            newPoints.add(originalPoints.get(i));
+    public Blueprint applyFilter(Blueprint blueprint) {
+        List<Point> original = blueprint.getPoints();
+        List<Point> newPoints = new ArrayList<>();
+        for(int i = 0; i < original.size(); i += 2){
+            newPoints.add(original.get(i));
         }
-        bp.setPoints(newPoints);
-        return bp;
+        blueprint.setPoints(newPoints);
+        return blueprint;
     }
+
     @Override
     public Set<Blueprint> multiFilterBlueprint(Set<Blueprint> blueprints) {
         for (Blueprint blueprint : blueprints) {
@@ -32,5 +33,4 @@ public class Subsampling implements Filter{
         }
         return blueprints;
     }
-
 }
