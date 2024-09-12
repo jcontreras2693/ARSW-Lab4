@@ -60,7 +60,7 @@ public class BlueprintsServices {
     public Blueprint getBlueprint(String author,String name) throws BlueprintNotFoundException{
         Blueprint blueprint;
         blueprint = bpp.getBlueprint(author, name);
-        filter.applyFilter(blueprint);
+        filter.filter(blueprint);
         return blueprint;
     }
 
@@ -74,7 +74,7 @@ public class BlueprintsServices {
         Set<Blueprint> blueprints = bpp.getBlueprintsByAuthor(author);
         Set<Blueprint> blueprintsFiltered = new HashSet<>();
         for(Blueprint bp: blueprints){
-            filter.applyFilter(bp);
+            filter.filter(bp);
             blueprintsFiltered.add(bp);
         }
         return blueprintsFiltered;

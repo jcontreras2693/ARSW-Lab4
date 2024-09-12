@@ -17,7 +17,7 @@ import edu.eci.arsw.blueprints.persistence.Filter;
 public class Redundancy implements Filter {
 
     @Override
-    public Blueprint applyFilter(Blueprint blueprint) {
+    public Blueprint filter(Blueprint blueprint) {
         List<Point> original = blueprint.getPoints();
         List<Point> repeated = new ArrayList<>();
         for (int i = 0; i < original.size(); i++) {
@@ -28,14 +28,14 @@ public class Redundancy implements Filter {
                 }
             }
         }
-        blueprint.setPoints(removeRepeatedPoints(repeated, original));
+        blueprint.setPoints(removeRepeated(repeated, original));
         return blueprint;
     }
 
     @Override
-    public Set<Blueprint> multiFilterBlueprint(Set<Blueprint> blueprints) {
+    public Set<Blueprint> multiFilter(Set<Blueprint> blueprints) {
         for (Blueprint i : blueprints) {
-            applyFilter(i);
+            filter(i);
         }
         return blueprints;
     }
@@ -44,7 +44,7 @@ public class Redundancy implements Filter {
         return (p1.getX() == p2.getX() && p1.getY() == p2.getY());
     }
 
-    public List<Point> removeRepeatedPoints(List<Point> repeatedPoints, List<Point> ptsAll) {
+    public List<Point> removeRepeated(List<Point> repeatedPoints, List<Point> ptsAll) {
         List<Point> x = new ArrayList<>(ptsAll);
         for (Point i: repeatedPoints) {
             x.remove(i);

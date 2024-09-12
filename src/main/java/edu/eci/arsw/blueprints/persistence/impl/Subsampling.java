@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class Subsampling implements Filter{
 
     @Override
-    public Blueprint applyFilter(Blueprint blueprint) {
+    public Blueprint filter(Blueprint blueprint) {
         List<Point> original = blueprint.getPoints();
         List<Point> newPoints = new ArrayList<>();
         for(int i = 0; i < original.size(); i += 2){
@@ -27,9 +27,9 @@ public class Subsampling implements Filter{
     }
 
     @Override
-    public Set<Blueprint> multiFilterBlueprint(Set<Blueprint> blueprints) {
+    public Set<Blueprint> multiFilter(Set<Blueprint> blueprints) {
         for (Blueprint blueprint : blueprints) {
-            applyFilter(blueprint);
+            filter(blueprint);
         }
         return blueprints;
     }
